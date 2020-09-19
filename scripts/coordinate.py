@@ -9,8 +9,11 @@ tude_string = ""
 danger_list = []
 safety_list = []
 
-danger_write_coords = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/danger_coords.txt")
-safety_write_coords = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/safety_coords.txt")
+danger_write_coords = os.path.abspath("scripts/danger_coords.txt")
+safety_write_coords = os.path.abspath("scripts/safety_coords.txt")
+
+danger_write_coords = danger_write_coords.replace('\\', '/')
+safety_write_coords = safety_write_coords.replace('\\', '/')
 
 #assign geolocator to _init_(params)
 geolocator = GoogleV3(api_key='AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM', user_agent=None)

@@ -1,13 +1,14 @@
 import pandas as pd
 import os
 
-set_abs_path = os.path.abspath("Documents/Github/HackMIT-2020/datasets/Toronto_Neighbourhood.csv")
-danger_write = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/danger.txt")
-safety_write = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/safety.txt")
+set_abs_path = os.path.abspath("datasets/Toronto_Neighbourhood.csv")
+danger_write = os.path.abspath("scripts/neighbourhood_names/danger.txt")
+safety_write = os.path.abspath("scripts/neighbourhood_names/safety.txt")
 
 #due to VSCode pylint limitations, must use absolute path, change in release or when using locally
+set_abs_path = set_abs_path.replace('\\', '/')
 neighbourhoods = pd.read_csv(set_abs_path)
-#print (neighbourhoods.head())
+#C:/Users/lavao/Documents/GitHub/HackMIT-2020/datasets/Toronto_Neighbourhood.csv
 
 neighbourhoods.drop(["Neighbourhood ID"], axis = 1, inplace = True)
 #neighbourhoods.drop(["Missing Address/Postal Code"], axis = 0, inplace = True)
