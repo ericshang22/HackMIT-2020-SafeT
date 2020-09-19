@@ -12,7 +12,7 @@
   }
   
   /* Style the search field */
-  form.space input[type=text] {
+  form.search input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -22,7 +22,7 @@
   }
   
   /* Style the submit button */
-  form.space button {
+  form.search button {
     display: inline-block;
     width: 5%;
     padding: 10px;
@@ -34,7 +34,7 @@
     cursor: pointer;
   }
   
-  form.space button:hover {
+  form.search button:hover {
     background: #0b7dda;
   }
   
