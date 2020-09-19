@@ -20,7 +20,14 @@ for i in range(len(safety_zone)):
     tude_string = str(location.latitude) + "," + str(location.longitude)
     safety_list.append(tude_string)
 
+#similar to neighbourhood, archival purposes storing
+with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/danger_coords.txt", "w") as output_file:
+   for item in danger_list:
+       output_file.write(str(item + '\n'))
 
+with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/safety_coords.txt", "w") as output_file:
+   for item in safety_list:
+       output_file.write(str(item + '\n'))
 
-#print (location.latitude)
-#print (location.longitude)
+if (__name__ == '__main__'):
+    print (__name__ + 'has run')

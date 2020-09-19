@@ -19,7 +19,7 @@ while (len(danger_zone) > 5):
     del (danger_zone[-1])
 
 #opens absolute path danger.txt in write mode and prints each item of list
-with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/danger.txt", "w") as output_file:
+with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/danger.txt", "w") as output_file:
    for item in danger_zone:
        output_file.write(str(item + '\n'))
 
@@ -31,7 +31,7 @@ safety_zone[:] = [x for x in safety_zone if "Missing Address/Postal Code" not in
 while (len(safety_zone) > 5):
     del (safety_zone[-1])
 
-with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/safety.txt", "w") as output_file:
+with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/safety.txt", "w") as output_file:
    for item in safety_zone:
        output_file.write(str(item + '\n'))
 
