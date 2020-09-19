@@ -1,7 +1,7 @@
 import pandas as pd
 
 #due to VSCode limitations, must use absolute path, change in release or when using locally
-neighbourhoods = pd.read_csv('C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/Toronto_Neighbourhood.csv')
+neighbourhoods = pd.read_csv('C:/Users/lavao/Documents/GitHub/HackMIT-2020/datasets/Toronto_Neighbourhood.csv')
 #print (neighbourhoods.head())
 
 neighbourhoods.drop(["Neighbourhood ID"], axis = 1, inplace = True)
