@@ -1,4 +1,4 @@
 # HackMIT-2020
 
-Important Notice:
-Those wishing to clone or otherwise use the app will need to change the absolute path within the scripts. These absolute paths can be replaced with relative paths; they were used due to VSCode's limitations.
+# Important Notice:
+Those wishing to clone or otherwise use the app **must** clone this repository into a GitHub folder within their Documents folder. Elsewise, it is sure not to run.
