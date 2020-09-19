@@ -35,5 +35,6 @@ with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/safety.txt", "w"
    for item in safety_zone:
        output_file.write(str(item + '\n'))
 
-#print(lower_count)
-#print(higher_count)
+if __name__ == '__main__':
+    print(danger_zone)
+    print(safety_zone)
