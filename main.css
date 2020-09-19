@@ -12,7 +12,7 @@
   }
   
   /* Style the search field */
-  form#space1 input[type=text] {
+  form.space input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -22,8 +22,8 @@
   }
   
   /* Style the submit button */
-  form#space1 button {
-    float: left;
+  form.space button {
+    display: inline-block;
     width: 5%;
     padding: 10px;
     background: #2196F3;
@@ -34,13 +34,11 @@
     cursor: pointer;
   }
   
-  form#space1 button:hover {
+  form.space button:hover {
     background: #0b7dda;
   }
   
-  /* Clear floats */
-  form#space1::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+
+
+
+
