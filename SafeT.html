@@ -3,6 +3,7 @@
  
 <head>
   <title>HackMIT2020</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
@@ -10,6 +11,11 @@
 <body>
   <h1>SafeT</h1> <!-- title-->
   <p>Hi</p> <!-- description -->
+  <form class="example" action="action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+
   <div id="map"></div>
   <script>
     function initMap() {
@@ -31,7 +37,7 @@
         });
         
         var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: "C:/Users/user/Documents/GitHub/HackMIT-2020/images/m"}); 
+            {imagePath: "C:/Users/austi/Documents/GitHub/HackMIT-2020/images/m"}); 
     }
     //data for where the covid is
     var locations = [
