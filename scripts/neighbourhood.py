@@ -1,7 +1,12 @@
 import pandas as pd
+import os
+
+set_abs_path = os.path.abspath("Documents/Github/HackMIT-2020/datasets/Toronto_Neighbourhood.csv")
+danger_write = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/danger.txt")
+safety_write = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/safety.txt")
 
 #due to VSCode pylint limitations, must use absolute path, change in release or when using locally
-neighbourhoods = pd.read_csv('C:/Users/lavao/Documents/GitHub/HackMIT-2020/datasets/Toronto_Neighbourhood.csv')
+neighbourhoods = pd.read_csv(set_abs_path)
 #print (neighbourhoods.head())
 
 neighbourhoods.drop(["Neighbourhood ID"], axis = 1, inplace = True)
@@ -19,7 +24,7 @@ while (len(danger_zone) > 5):
     del (danger_zone[-1])
 
 #opens absolute path danger.txt in write mode and prints each item of list
-with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/danger.txt", "w") as output_file:
+with open(danger_write, "w") as output_file:
    for item in danger_zone:
        output_file.write(str(item + '\n'))
 
@@ -31,7 +36,7 @@ safety_zone[:] = [x for x in safety_zone if "Missing Address/Postal Code" not in
 while (len(safety_zone) > 5):
     del (safety_zone[-1])
 
-with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/neighbourhood_names/safety.txt", "w") as output_file:
+with open(safety_write, "w") as output_file:
    for item in safety_zone:
        output_file.write(str(item + '\n'))
 

@@ -1,4 +1,5 @@
 from neighbourhood import danger_zone, safety_zone
+import os
 import geopy
 from geopy.geocoders import GoogleV3 #import Google API
 #documentation at https://geopy.readthedocs.io/en/stable/#googlev3
@@ -7,6 +8,9 @@ from geopy.geocoders import GoogleV3 #import Google API
 tude_string = ""
 danger_list = []
 safety_list = []
+
+danger_write_coords = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/danger_coords.txt")
+safety_write_coords = os.path.abspath("Documents/GitHub/HackMIT-2020/scripts/safety_coords.txt")
 
 #assign geolocator to _init_(params)
 geolocator = GoogleV3(api_key='AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM', user_agent=None)
@@ -21,11 +25,11 @@ for i in range(len(safety_zone)):
     safety_list.append(tude_string)
 
 #similar to neighbourhood, archival purposes storing
-with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/danger_coords.txt", "w") as output_file:
+with open(danger_write_coords, "w") as output_file:
    for item in danger_list:
        output_file.write(str(item + '\n'))
 
-with open("C:/Users/lavao/Documents/GitHub/HackMIT-2020/scripts/safety_coords.txt", "w") as output_file:
+with open(safety_write_coords, "w") as output_file:
    for item in safety_list:
        output_file.write(str(item + '\n'))
 
