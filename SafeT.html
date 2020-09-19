@@ -21,16 +21,32 @@
       <button type="submit"><i class="fa fa-search"></i></button>
     </div>
   </div>
-  &nbsp
+
+  <div id="floating-panel">
+    <b>Start: </b>
+    <select id="start">
+      <option value="foo">Apartment</option>
+    </select>
+    <b>End: </b>
+    <select id="end">
+      <option value="CN Tower, Toronto, Ontario">CN Tower</option>
+      <option value="Bay Street, Toronto, Ontario">Bay Street</option>
+    </select>
+    </div>
 
   <div id="map"></div>
   <script>
+
     function initMap() {
       //user start location
+
       var startLocation = { lat:43.481715, lng: -80.525572 };
-      //initializing map
-      var map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 5, center: startLocation });
+      var directionsService = new google.maps.DirectionsService;
+      var directionsDisplay = new google.maps.DirectionsRenderer;
+      var map = new google.maps.Map(document.getElementById('map'), { zoom: 5, center: startLocation });
+      startLatLng = new google.maps.LatLng({lat: 43.481715, lng: -80.525572})
+
+
       //marker at user start location
       var startmarker = new google.maps.Marker({ position: startLocation, map: map });
       //labels for the covid discovery markers
@@ -43,68 +59,89 @@
           });
         });
         
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: "C:/Users/user/Documents/GitHub/HackMIT-2020/images/m"}); 
-    }
+      var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: "C:/Users/austi/Documents/GitHub/HackMIT-2020/images/m"}); 
+      
+      directionsDisplay.setMap(map);
+
+      var onChangeHandler = function() {calculateAndDisplayRoute(directionsService, directionsDisplay);};
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: startLatLng,
+          destination: document.getElementById('end').value,
+          travelMode: 'WALKING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+
     //data for where the covid is
     var locations = [
-      {lat: 43.736420, lng: -79.381912},
-      {lat: 43.769421, lng: -79.364197},
-      {lat: 43.756088, lng: -79.247040},
-      {lat: 43.870445, lng: -79.450806},
-      {lat: 43.653439, lng: -79.405739},
-      {lat: 43.657270, lng: -79.390270},
-      {lat: 43.756090, lng: -79.247040},
-      {lat: 43.639360, lng: -79.450100},
-      {lat: 43.698100, lng: -79.437710},
-      {lat: 43.764830, lng: -79.412680},
-      {lat: 43.784140, lng: -79.283470},
-      {lat: 43.662520, lng: -79.410440},
-      {lat: 43.673150, lng: -79.536030},
-      {lat: 43.651890, lng: -79.381710},
-      {lat: 43.668282, lng: -79.399811},
-      {lat: 43.686321, lng: -79.621780},
-      {lat: 43.644402, lng: -79.386414},
-      {lat: 43.643429, lng: -79.381210},
-      {lat: 43.639080, lng: -79.449722},
-      {lat: 43.573002, lng: -79.609283},
-      {lat: 43.654179, lng: -79.377380},
-      {lat: 43.609619, lng: -79.562393},
-      {lat: 43.689120, lng: -79.412620},
-      {lat: 43.644880, lng: -79.392100},
-      {lat: 43.759762, lng: -79.467079},
-      {lat: 43.656391, lng: -79.377701},
-      {lat: 43.667950, lng: -79.439133},
-      {lat: 43.659721, lng: -79.365829},
-      {lat: 43.638901, lng: -79.386620},
-      {lat: 43.672150, lng: -79.421000},
-      {lat: 43.710900, lng: -79.363740},
-      {lat: 43.769249, lng: -79.412971},
-      {lat: 43.644001, lng: -79.403130},
-      {lat: 43.657230, lng: -79.387733},
-      {lat: 43.673620, lng: -79.391600},
-      {lat: 43.699870, lng: -79.475490},
-      {lat: 43.696678, lng: -79.370811},
-      {lat: 43.778090, lng: -79.308910},
-      {lat: 43.699990, lng: -79.392540},
-      {lat: 43.642650, lng: -79.428020},
-      {lat: 43.665670, lng: -79.463200},
-      {lat: 43.756540, lng: -79.313550},
-      {lat: 43.627970, lng: -79.552310},
-      {lat: 43.809490, lng: -79.269400},
-      {lat: 43.661591, lng: -79.380234},
-      {lat: 43.642070, lng: -79.557950},
-      {lat: 43.688000, lng: -79.288223},
-      {lat: 43.752760, lng: -79.263540},
-      {lat: 43.646332, lng: -79.392738},
-      {lat: 43.756229, lng: -79.517303},
-      {lat: 43.654190, lng: -79.419620},
-      {lat: 43.691100, lng: -79.285860},
-      {lat: 43.675440, lng: -79.405620},
-      {lat: 43.630180, lng: -79.481552},
-      {lat: 43.734210, lng: -79.744620},
-      {lat: 43.728371, lng: -79.295723},
-      {lat: 43.665210, lng: -79.462920},
+    {lat: 43.736420, lng: -79.381912},
+    {lat: 43.769421, lng: -79.364197},
+    {lat: 43.756088, lng: -79.247040},
+    {lat: 43.870445, lng: -79.450806},
+    {lat: 43.653439, lng: -79.405739},
+    {lat: 43.657270, lng: -79.390270},
+    {lat: 43.756090, lng: -79.247040},
+    {lat: 43.639360, lng: -79.450100},
+    {lat: 43.698100, lng: -79.437710},
+    {lat: 43.764830, lng: -79.412680},
+    {lat: 43.784140, lng: -79.283470},
+    {lat: 43.662520, lng: -79.410440},
+    {lat: 43.673150, lng: -79.536030},
+    {lat: 43.651890, lng: -79.381710},
+    {lat: 43.668282, lng: -79.399811},
+    {lat: 43.686321, lng: -79.621780},
+    {lat: 43.644402, lng: -79.386414},
+    {lat: 43.643429, lng: -79.381210},
+    {lat: 43.639080, lng: -79.449722},
+    {lat: 43.573002, lng: -79.609283},
+    {lat: 43.654179, lng: -79.377380},
+    {lat: 43.609619, lng: -79.562393},
+    {lat: 43.689120, lng: -79.412620},
+    {lat: 43.644880, lng: -79.392100},
+    {lat: 43.759762, lng: -79.467079},
+    {lat: 43.656391, lng: -79.377701},
+    {lat: 43.667950, lng: -79.439133},
+    {lat: 43.659721, lng: -79.365829},
+    {lat: 43.638901, lng: -79.386620},
+    {lat: 43.672150, lng: -79.421000},
+    {lat: 43.710900, lng: -79.363740},
+    {lat: 43.769249, lng: -79.412971},
+    {lat: 43.644001, lng: -79.403130},
+    {lat: 43.657230, lng: -79.387733},
+    {lat: 43.673620, lng: -79.391600},
+    {lat: 43.699870, lng: -79.475490},
+    {lat: 43.696678, lng: -79.370811},
+    {lat: 43.778090, lng: -79.308910},
+    {lat: 43.699990, lng: -79.392540},
+    {lat: 43.642650, lng: -79.428020},
+    {lat: 43.665670, lng: -79.463200},
+    {lat: 43.756540, lng: -79.313550},
+    {lat: 43.627970, lng: -79.552310},
+    {lat: 43.809490, lng: -79.269400},
+    {lat: 43.661591, lng: -79.380234},
+    {lat: 43.642070, lng: -79.557950},
+    {lat: 43.688000, lng: -79.288223},
+    {lat: 43.752760, lng: -79.263540},
+    {lat: 43.646332, lng: -79.392738},
+    {lat: 43.756229, lng: -79.517303},
+    {lat: 43.654190, lng: -79.419620},
+    {lat: 43.691100, lng: -79.285860},
+    {lat: 43.675440, lng: -79.405620},
+    {lat: 43.630180, lng: -79.481552},
+    {lat: 43.734210, lng: -79.744620},
+    {lat: 43.728371, lng: -79.295723},
+    {lat: 43.665210, lng: -79.462920},
 
       ]
   </script>
