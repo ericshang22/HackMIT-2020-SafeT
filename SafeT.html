@@ -11,17 +11,18 @@
 <body>
   <h1>SafeT</h1> <!-- title-->
   <p>Hi</p> <!-- description -->
-  <form class="search" action="action_page.php">
-    <input type="text" placeholder="Current Location" name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
+  <div class="searchbars">
+    <div class="search"id="search1" action="action_page.php">
+      <input type="text" placeholder="Current Location" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="search"id="search2" action="action_page.php">
+      <input type="text" placeholder="Destination" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+  </div>
   &nbsp
-  <form class="search"id="search2" action="action_page.php">
-    <input type="text" placeholder="Destination" name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
-  &nbsp
-  
+
 
   <div id="map"></div>
   <script>

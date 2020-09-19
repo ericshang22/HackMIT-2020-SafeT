@@ -10,9 +10,27 @@
 * {
     box-sizing: content-box;
   }
+
+.searchbars {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+#search1 {
+    width: 1000px;
+    margin: 0 50px;
+}
+
+#search2 {
+    width: 1000px;
+    margin: 0 -200px
+}
+
   
   /* Style the search field */
-  form.search input[type=text] {
+  div.search input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -22,7 +40,7 @@
   }
   
   /* Style the submit button */
-  form.search button {
+  div.search button {
     display: inline-block; margin-left: -4px;
     width: 5%;
     padding: 10px;
@@ -34,10 +52,6 @@
     cursor: pointer;
   }
   
-  form.search button:hover {
+  div.search button:hover {
     background: #0b7dda;
   }
-
-
-
-
