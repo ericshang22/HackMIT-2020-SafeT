@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>HackMIT2020</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
   <h1>SafeT</h1>
   <p>Hi</p>
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      
+      var startLocation = { lat:43.481715, lng: -80.525572 };
+      
+      var map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 5, center: startLocation });
+     
+      var marker = new google.maps.Marker({ position: startLocation, map: map });
+    }
+  </script>
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM&callback=initMap">
+    </script>
 </body>
+
 </html>
