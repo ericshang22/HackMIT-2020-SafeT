@@ -16,8 +16,6 @@
     flex-direction: row;
 }
 
-
-
 #search1 {
     width: 1000px;
     margin: 0 50px;
@@ -28,7 +26,6 @@
     margin: 0 -200px
 }
 
-  
   /* Style the search field */
   div.search input[type=text] {
     padding: 10px;
