@@ -38,8 +38,12 @@
 
   <div id="map"></div>
   <script>
+<<<<<<< HEAD
     var map, heatmap;
     
+=======
+
+>>>>>>> parent of 0a9c19f... dsasd
     function initMap() {
       //user start location
 
@@ -51,7 +55,7 @@
       var map = new google.maps.Map(document.getElementById('map'), { zoom: 5, center: startLocation });
       startLatLng = new google.maps.LatLng({lat: 43.481715, lng: -80.525572})
 
-      
+
       //marker at user start location
       var startmarker = new google.maps.Marker({ position: startLocation, map: map });
       //labels for the covid discovery markers
@@ -66,7 +70,7 @@
         
       //cluster markers stored on local drive, must fix or else broken
       var markerCluster = new MarkerClusterer(map, markers,
-        {imagePath: "C:/Users/user/Documents/GitHub/HackMIT-2020/images/m"}); 
+        {imagePath: "C:/Users/austi/Documents/GitHub/HackMIT-2020/images/m"}); 
       
       directionsDisplay.setMap(map);
 
@@ -74,11 +78,14 @@
       var onChangeHandler = function() {calculateAndDisplayRoute(directionsService, directionsDisplay);};
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
+<<<<<<< HEAD
       
       var heatmap = new google.maps.visualization.HeatmapLayer({
         data: getPoints
       });
       heatmap.setMap(map);
+=======
+>>>>>>> parent of 0a9c19f... dsasd
       }
       //heatmap points
       var getPoints = [
@@ -166,16 +173,13 @@
 
       ]
   </script>
-   
   <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-  <script 
+  <script defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM&callback=initMap">
     </script>
-    <script  
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM&signed_in=true&libraries=visualization&callback=initMap">
- </script>
- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <h1> </h1>
+  <h1></h1>
 </body>
  
 </html>
