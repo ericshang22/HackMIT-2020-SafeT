@@ -19,6 +19,32 @@
     background-image: linear-gradient(to bottom right, white, gray);
   }
 
+.header {
+    color: #333;
+    padding: 4px;
+    font-size: 16px;
+    font-family: myFirstFont;
+    border: none;
+}
+
+#start {
+    background-color: #333;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    font-family: myFirstFont;
+    border: none;
+}
+
+#end {
+    background-color: #333;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    font-family: myFirstFont;
+    border: none;
+}
+
 .deepshadow {
     color: #e0dfdc;
     background-color: #333;

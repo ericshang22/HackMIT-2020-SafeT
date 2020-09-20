@@ -19,11 +19,11 @@
 
   <!-- floating panel id for future usage -->
   <div id="floating-panel">
-    <b>Start: </b>
+    <b class="header">Start: </b>
     <select id="start">
       <option value="foo">Apartment</option>
     </select>
-    <b>End: </b>
+    <b class="header">End: </b>
     <select id="end">
       <option value="CN Tower, Toronto, Ontario">CN Tower</option>
       <option value="Bay Street, Toronto, Ontario">Bay Street</option>
@@ -83,17 +83,18 @@
         data: getPoints(),
         map: map
       })
-      const gradient =["rgba(255, 60, 0, 0)",
+      const gradient =[
+      "rgba(255, 60, 0, 0)",
       "rgba(255, 60, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)",
-"rgba(255, 0, 0, 1)"];
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)",
+      "rgba(255, 0, 0, 1)"];
       heatmap.set("radius", 50);
       heatmap.set("opacity", 2);
       heatmap.set("gradient", gradient);
