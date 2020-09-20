@@ -39,7 +39,7 @@
     </div>
 
   <div id="map"></div>
-  <script>
+<script>
     var map, heatmap;
 
     /*function initMap() {
@@ -310,24 +310,21 @@
     {lat: 43.665210, lng: -79.462920},
   ]
 
-  for (const city in location) {
-    const wellCircle = new google.maps.Circle({
+  for (var i = 0; i < locations.length; i++) {
+    var wellCircle = new google.maps.Circle({
         strokeColor: '#FF0000',
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: '#FF0000',
         fillOpacity: 0.35,
         map: map,
-        center: new google.maps.LatLng(city.lat, city.lng),
+        center: new google.maps.LatLng(locations[i].lat, locations[i].lng),
         radius: 10000
     });
   };
-  </script>
+</script>
    
   <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-  <script 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM&callback=initMap">
-    </script>
     <script  
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtLyQEuPDHzgHVqVz6pOoxR7i8DzQRSDM&signed_in=true&libraries=visualization&callback=initMap">
  </script>
