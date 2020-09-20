@@ -81,7 +81,7 @@
         
       //cluster markers stored on local drive, must fix or else broken
       var markerCluster = new MarkerClusterer(map, markers,
-        {imagePath: "C:/Users/user/Documents/GitHub/HackMIT-2020/images/m"}); 
+        {imagePath: "C:/Users/austi/Documents/GitHub/HackMIT-2020/images/m"}); 
       
       directionsDisplay.setMap(map);
 
@@ -95,7 +95,7 @@
         map: map
       })
       }
-      //function to get heatmap points
+      //function to get heatmap points with time
       function getPoints(){
         return [
     new google.maps.LatLng(32.8258018,	-96.7145996),
@@ -311,7 +311,11 @@
   ]
 
   for (var i = 0; i < locations.length; i++) {
+<<<<<<< HEAD
     var wellCircle = new google.maps.Circle({
+=======
+    const wellCircle = new google.maps.Circle({
+>>>>>>> b12323a155afbe43b381610d98b3030e709d9ebb
         strokeColor: '#FF0000',
         strokeOpacity: 0.8,
         strokeWeight: 2,
