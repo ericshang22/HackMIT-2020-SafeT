@@ -2,6 +2,8 @@
 <html>
  
 <head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
   <title>HackMIT2020</title> <!--header-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
@@ -42,13 +44,13 @@
     function initMap() {
       //user start location
 
-      var startLocation = { lat:43.481715, lng: -80.525572 };
+      var startLocation = { lat:43.650571, lng: -79.389826 };
       //assigning api structures
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
       //default start on google maps page
       var map = new google.maps.Map(document.getElementById('map'), { zoom: 5, center: startLocation });
-      startLatLng = new google.maps.LatLng({lat: 43.481715, lng: -80.525572})
+      startLatLng = new google.maps.LatLng({lat: 43.650571, lng: -79.389826})
 
 
       //marker at user start location
@@ -152,8 +154,24 @@
     {lat: 43.734210, lng: -79.744620},
     {lat: 43.728371, lng: -79.295723},
     {lat: 43.665210, lng: -79.462920},
+  ]
+  for (var i=0; i < locations.length; i++)
+  {
+    console.log(locations[i])
+  }
 
-      ]
+  for (const city in location) {
+    const wellCircle = new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        center: new google.maps.LatLng(city.lat, city.lng),
+        radius: 10000
+    });
+  };
   </script>
   <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
   <script defer
